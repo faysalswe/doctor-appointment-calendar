@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppointmentCalendarComponent } from './appointment-calendar/appointment-calendar.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [		
@@ -14,7 +15,8 @@ import { NewAppointmentComponent } from './new-appointment/new-appointment.compo
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
