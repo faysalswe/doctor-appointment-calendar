@@ -1,0 +1,8 @@
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+}
+.day {
+    border: 1px ;
+    min-width: 50px;
+}
