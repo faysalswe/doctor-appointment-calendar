@@ -1,0 +1,77 @@
+<div #formDirective="ngForm" [formGroup]="createAppointmentFrom">
+
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input type="text" matInput formControlName="firstName">
+    <mat-error *ngIf="createAppointmentFrom.controls['firstName'].hasError('required')">
+      First Name is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="createAppointmentFrom.controls['firstName'].hasError('maxLength')">
+      First Name max length is <strong>40</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input type="text" matInput formControlName="lastName">
+    <mat-error *ngIf="createAppointmentFrom.controls['lastName'].hasError('required')">
+      Last Name is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="createAppointmentFrom.controls['lastName'].hasError('maxLength')">
+      Last Name max length is <strong>40</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput formControlName="email">
+    <mat-error *ngIf="createAppointmentFrom.controls['email'].hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="createAppointmentFrom.controls['email'].hasError('email')">
+      Email is not valid
+    </mat-error>
+  </mat-form-field>
+
+  <div style="margin-bottom: 15px;">
+    <mat-label>Gender</mat-label>
+    <mat-radio-group name="Gender" formControlName="gender"> &nbsp;&nbsp;
+      <mat-radio-button value="0"> Male</mat-radio-button> &nbsp;
+      <mat-radio-button value="1"> Female</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Age</mat-label>
+    <input type="number" matInput formControlName="age">
+    <mat-error *ngIf="createAppointmentFrom.controls['age'].hasError('required')">
+      Age is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date">
+    <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="createAppointmentFrom.controls['date'].hasError('required')">
+      Date is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Time</mat-label>
+    <input type="time" matInput formControlName="time">
+    <mat-error *ngIf="createAppointmentFrom.controls['time'].hasError('required')">
+      Time is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <div style="display: flex; justify-content: space-between;">
+    <button mat-raised-button (click)="closeModal()">Close</button>
+    <button *ngIf="!data.isView" mat-raised-button color="primary" [disabled]="createAppointmentFrom.invalid"
+      (click)="saveAppointment()">Save Appointment</button>
+  </div>
+
+</div>
