@@ -6,11 +6,15 @@ import { AppointmentCalendarComponent } from './pages/appointment-calendar/appoi
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'month/:month',
+    redirectTo: 'month',
     pathMatch: 'full'
   },
   {
     path: 'month/:month',
+    component: AppointmentCalendarComponent
+  },
+  {
+    path: 'month',
     component: AppointmentCalendarComponent
   }
 ];
