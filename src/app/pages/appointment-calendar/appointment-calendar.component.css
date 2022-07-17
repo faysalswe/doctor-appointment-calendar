@@ -1,16 +1,26 @@
 .calendar {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .day {
-    width: 125px;
+    width: 130px;
     height: 150px;
-    margin: 5px;
+    margin-bottom: 10px;
 }
 
 .date {
     font-weight: bolder;
     font-size: x-large;
     color: darkgreen;
+}
+
+.appointments {
+    box-sizing: border-box;
+    width: 140px;
+    height: 130px;
+    margin: 0px;
+    overflow: auto;
 }
