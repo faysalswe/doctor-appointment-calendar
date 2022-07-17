@@ -1,0 +1,37 @@
+<div class="container">
+
+  <section style="margin-top: 10px;">
+    <div style="display: flex; justify-content: space-between;">
+      <mat-form-field appearance="fill">
+        <mat-label>Months</mat-label>
+        <mat-select [(ngModel)]="selectedMonth" (selectionChange)="monthSelectionChange()">
+          <mat-option *ngFor="let month of monthNames" [value]="month.key">
+            {{month.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" (click)="openNewAppointmentModal()">Create Appointment</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="calendar">
+      <mat-card class="day" *ngFor="let day of monthDays">
+        <div style="display: flex; justify-content: space-between;">
+          <span class="date"> {{ day.day }} </span>
+          <span> {{ day.name }} </span>
+        </div>
+        <a 
+          href="javascript:void(0);" 
+          *ngFor="let appointment of day.appointments"
+          (click)="showAppointmentDetail(appointment)"
+        > 
+          {{ appointment.date | date:'dd/MM/yyyy' }} - {{ appointment.time }} 
+        </a>
+      </mat-card>
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,16 @@
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day {
+    width: 125px;
+    height: 150px;
+    margin: 5px;
+}
+
+.date {
+    font-weight: bolder;
+    font-size: x-large;
+    color: darkgreen;
+}
